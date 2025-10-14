@@ -1,111 +1,105 @@
-# 🧠 Telegram Problem-Solver Bot
+# بوت تيليجرام لحل المشكلات
 
-This is a simple **Telegram bot** that responds to user messages with solutions loaded from an **Excel file**.  
-It uses the **python-telegram-bot** and **pandas** libraries.
-
----
-
-## 📋 Features
-
-- Loads a list of *problems and solutions* from an Excel file (`problems.xlsx`).
-- Responds to any text message by looking up the matching problem.
-- Includes a `/start` command for greetings.
-- Easy to customize and extend with additional commands.
+هذا مشروع بسيط لبوت **تيليجرام** يقوم بالرد على رسائل المستخدمين من خلال حلول مأخوذة من **ملف إكسل**.  
+يستخدم المكتبتين **python-telegram-bot** و **pandas**.
 
 ---
 
-## 📂 Project Structure
+## المميزات
+
+- تحميل قائمة *المشكلات والحلول* من ملف إكسل (`problems.xlsx`).
+- الرد على أي رسالة نصية بالحل المطابق.
+- يحتوي على أمر `/start` للترحيب بالمستخدم.
+- سهل التخصيص والتطوير بإضافة أوامر جديدة.
+
+---
+
+## هيكل المشروع
 
 ```
 telegram_bot/
 │
-├── bot.py             # Main Python script
-├── problems.xlsx      # Excel file containing problems and solutions
-└── README.md          # Project documentation
+├── bot.py             # السكربت الرئيسي
+├── problems.xlsx      # ملف الإكسل الذي يحتوي على المشكلات والحلول
+└── README.md          # ملف التوثيق
 ```
 
 ---
 
-## 🧩 Excel Format
+## تنسيق ملف الإكسل
 
-Make sure your `problems.xlsx` file has these two columns:
+تأكد أن ملف `problems.xlsx` يحتوي على عمودين بالشكل التالي:
 
 | Problem | Solution |
 |----------|-----------|
 | WiFi not connecting | Restart your router and try again. |
 | Cannot log in | Check your username and password. |
 
-The bot matches the **Problem** column (case-insensitive) and replies with the corresponding **Solution**.
+يقوم البوت بمطابقة العمود **Problem** (بغض النظر عن حالة الأحرف) ويعرض الحل المقابل من عمود **Solution**.
 
 ---
 
-## ⚙️ Installation
+## خطوات التثبيت
 
-1. **Clone the repository**
+1. **استنساخ المشروع من GitHub**
    ```bash
    git clone https://github.com/msalharbi/telegram_bot.git
    cd telegram_bot
    ```
 
-2. **Create and activate a virtual environment (optional but recommended)**
+2. **إنشاء وتفعيل بيئة افتراضية (اختياري ولكن مستحسن)**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate   # macOS/Linux
-   venv\Scripts\activate      # Windows
+   source venv/bin/activate   # في أنظمة macOS/Linux
+   venv\Scripts\activate      # في نظام Windows
    ```
 
-3. **Install dependencies**
+3. **تثبيت المكتبات المطلوبة**
    ```bash
    pip install pandas python-telegram-bot==20.3
    ```
 
-4. **Add your bot token**
-   - Open `bot.py`
-   - Replace:
+4. **إضافة رمز البوت**
+   - افتح الملف `bot.py`
+   - واستبدل السطر التالي:
      ```python
      app = Application.builder().token("TOKEN_HERE").build()
      ```
-     with your actual Telegram bot token from [@BotFather](https://t.me/BotFather).
+     برمز البوت الخاص بك الذي تحصل عليه من [@BotFather](https://t.me/BotFather).
 
 ---
 
-## ▶️ Run the Bot
+##  تشغيل البوت
 
 ```bash
 python bot.py
 ```
 
-You should see:
+بعد التنفيذ، ستظهر رسالة مشابهة:
 ```
 INFO:telegram.ext._application:Application started successfully
 ```
 
-Then open Telegram, find your bot, and send a message like:
+ثم افتح تطبيق تيليجرام، وابحث عن البوت، وأرسل رسالة مثل:
 > wifi not connecting
 
-The bot will reply with the corresponding solution from `problems.xlsx`.
+وسيقوم البوت بالرد بالحل المقابل من ملف `problems.xlsx`.
 
 ---
 
-## 🧠 Example Interaction
+## 💬 مثال على التفاعل
 
-**User:**  
+**المستخدم:**  
 `wifi not connecting`  
 
-**Bot:**  
+**البوت:**  
 `Restart your router and try again.`
 
 ---
 
-## 🪄 Future Enhancements
+## أفكار لتطوير المشروع
 
-- Add fuzzy matching for similar problem names.  
-- Integrate with Google Sheets instead of Excel.  
-- Add logging for frequently asked issues.  
-- Deploy on a cloud service (e.g., Render, Heroku, or AWS Lambda).
-
----
-
-## 📜 License
-
-This project is open-source and available under the [MIT License](LICENSE).
+- إضافة مطابقة تقريبية (fuzzy matching) لأسماء المشكلات المتشابهة.  
+- ربط البوت بجداول Google Sheets بدلاً من ملف Excel.  
+- تسجيل الأسئلة الأكثر تكراراً لتحليلها لاحقاً.  
+- نشر البوت على خوادم سحابية مثل Render أو Heroku أو AWS Lambda.
