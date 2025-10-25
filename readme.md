@@ -66,7 +66,7 @@ telegram_bot/
 
 3. **تثبيت المكتبات المطلوبة**
    ```bash
-   pip install pandas python-telegram-bot==20.3
+      pip install python-telegram-bot pandas openpyxl
    ```
 
 4. **إضافة رمز البوت**
